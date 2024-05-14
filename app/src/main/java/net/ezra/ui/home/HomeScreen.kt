@@ -75,6 +75,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -252,7 +253,7 @@ Icon(imageVector =Icons.Default.Clear , contentDescription ="" , tint = Color.Wh
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Yamral Fashion ") },
+                    title = { Text("Yamral  ", fontFamily = FontFamily.Monospace, fontSize = (20.sp)) },
                     backgroundColor = Color(0XFF),
 
 //                        , Color =  TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent )
@@ -332,13 +333,37 @@ Icon(imageVector =Icons.Default.Clear , contentDescription ="" , tint = Color.Wh
 
 
                     modifier = Modifier.fillMaxSize(),
-//                verticalArrangement = Arrangement.Center,
-//                horizontalAlignment = Alignment.CenterHorizontally
+                verticalArrangement = Arrangement.Bottom,
+                horizontalAlignment = Alignment.CenterHorizontally
+
 
 
                 ) {
 
+                    Button(
+                        onClick = {
+                            navController.navigate(ROUTE_VIEW_PROD) {
+                                popUpTo(ROUTE_HOME) { inclusive = true }
+                            }
+                        },
 
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(Color(0xffC77A43)),
+                        border = BorderStroke(1.5.dp, Color.Transparent),
+                        contentPadding = PaddingValues(15.dp),
+                        modifier = Modifier
+                            .height(50.dp)
+                            .width(250.dp)
+                            .clip(CircleShape )
+                        
+                    ) {
+
+
+                        Text("shop", color = Color.White)
+                        Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "")
+                    }
+
+                }
 
 
                     }
@@ -346,61 +371,47 @@ Icon(imageVector =Icons.Default.Clear , contentDescription ="" , tint = Color.Wh
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         modifier = Modifier
                             .fillMaxSize()
-                            .horizontalScroll(state = ScrollState(2)),
+//                            .horizontalScroll(state = ScrollState(2)),
 
 
                     ) {
 
-                        Button(
-                            onClick = {
-                                navController.navigate(ROUTE_VIEW_PROD) {
-                                    popUpTo(ROUTE_HOME) { inclusive = true }
-                                }
-                            },
-
-                            shape = RoundedCornerShape(10.dp),
-                            colors = ButtonDefaults.outlinedButtonColors(Color(0xffC77A43)),
-                            border = BorderStroke(1.5.dp, Color.Transparent),
-                            contentPadding = PaddingValues(15.dp),
-                            modifier = Modifier
-                                .height(50.dp)
-                                .width(150.dp)
+                        FloatingActionButton(
+                            onClick = { }, backgroundColor = Color(0xffbc8f8f),
+                            contentColor = Color.White
                         ) {
-                            Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "")
-
-                            Text("shop", color = Color.White)
-                        }
-
-                    }
-                Spacer(modifier = Modifier.height(10.dp))
-
-
-
-                        Text(
-                            text = "YAMRAL FASHION STORE",
-                            style = TextStyle(
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold,
-                                fontStyle = FontStyle.Italic,
-                                color = Color.White
-                            ),
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp),
-                            textAlign = TextAlign.Center,
-
+                            Icon(
+                                imageVector = Icons.Filled.KeyboardArrowRight,
+                                contentDescription = "",
                             )
 
-                FloatingActionButton(
-                    onClick = { }, backgroundColor = Color(0xffbc8f8f),
-                    contentColor = Color.White
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.KeyboardArrowRight,
-                        contentDescription = "",
-                    )
+                        }
+                Spacer(modifier = Modifier.height(200.dp))
 
-                }
+
+
+                  Column() {
+
+                      Row {
+
+                          Text(
+                              text = "YAMRAL FASHION STORE",
+                              style = TextStyle(
+                                  fontSize = 24.sp,
+                                  fontWeight = FontWeight.Bold,
+                                  fontStyle = FontStyle.Italic,
+                                  color = Color.White
+                              ),
+                              modifier = Modifier
+                                  .fillMaxSize()
+                                  .padding(16.dp),
+                              textAlign = TextAlign.Center,
+
+                              )
+                      }
+                  }
+
+
 
 
 //                        Card(

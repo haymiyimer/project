@@ -84,7 +84,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
                                 .addOnCompleteListener { task ->
                                     isLoading = false
                                     if (task.isSuccessful) {
-                                        navController.navigate(ROUTE_DASHBOARD)
+                                        navController.navigate(ROUTE_HOME)
                                     } else {
                                         error = task.exception?.message ?: "Login failed"
                                     }

@@ -1,3 +1,6 @@
+
+
+
 package net.ezra.ui.products
 
 import android.annotation.SuppressLint
@@ -164,7 +167,7 @@ fun ProductListItem(product: Product, onItemClick: (String) -> Unit) {
         modifier = Modifier
             .padding(16.dp)
             .clip(RoundedCornerShape(16.dp))
-            .background(color = Color.White)
+//            .background(color = Color.White)
 
             .fillMaxWidth()
 
